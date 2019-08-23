@@ -12,7 +12,6 @@ A simple Rust cli to transform CSV to json.
 * `-l`, `--limiter`: csv limiter. Default *;*
 
 ## TODO
-* manage empty value
 * manage output filename depending on input filename
 * manage errors
 
