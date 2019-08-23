@@ -38,13 +38,13 @@ fn main() -> std::io::Result<()> {
     }
 
     let output = matches.value_of("output");
-    let output_file;
+    let mut output_file;
     if let Some(o) = output {
         println!("Output: {}", o);
         output_file = String::from(o);
     } else {
         // TODO : get the input filename and change csv to json
-        output_file = String::from("output.json")
+        output_file = get_output_filename(input.unwrap());
     }
 
     let limiter = matches.value_of("limiter").unwrap_or(";");;
@@ -79,6 +79,13 @@ fn main() -> std::io::Result<()> {
     println!("result {}", result);
     println!("nbObject {}", i);
     return write_file_result(result, output_file);
+}
+
+fn get_output_filename(input_filename: &str) -> String {
+    let j: Vec<&str> = input_filename.split(".csv").collect();
+    let mut output_file = String::from(j[0]);
+    output_file.push_str(".json");
+    return output_file;
 }
 
 fn write_file_result(result: String, filename: String) -> std::io::Result<()> {
