@@ -2,7 +2,9 @@
 A simple Rust cli to transform CSV to json. 
 
 ## use
-
+Compile
+`cargo build --release`
+then
 `./target/release/RustCsvToJson -i test2.csv`
 `./target/release/RustCsvToJson -i test.csv --limiter ,`
 
@@ -12,6 +14,5 @@ A simple Rust cli to transform CSV to json.
 * `-l`, `--limiter`: csv limiter. Default *;*
 
 ## TODO
-* manage output filename depending on input filename
 * manage errors
 
